@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% block 'title' %}Customers | Store Sync{% endblock 'title' %}
+
+
+{% block 'content' %}
+<!-- Page Header -->
+<div class="block justify-between page-header md:flex">
+    <div>
+        <h3 class="text-gray-700 hover:text-gray-900 dark:text-white dark:hover:text-white text-2xl font-medium">All Customers</h3>
+    </div>
+    <ol class="flex items-center whitespace-nowrap min-w-0">
+        <li class="text-sm">
+            <a class="flex items-center font-semibold text-primary hover:text-primary dark:text-primary truncate"
+                href="javascript:void(0);">
+                Dashboard
+                <i
+                    class="ti ti-chevrons-right flex-shrink-0 mx-3 overflow-visible text-gray-300 dark:text-gray-300 rtl:rotate-180"></i>
+            </a>
+        </li>
+        <li class="text-sm text-gray-500 hover:text-primary dark:text-white/70 " aria-current="page">Customers</li>
+    </ol>
+</div>
+<!-- Page Header Close -->
+
+
+<!-- Start::row-1 -->
+<div class="grid grid-cols-12 gap-x-5">
+    <div class="col-span-12">
+        <div class="box">
+            <div class="box-header flex items-center">
+                <h5 class="box-title">All Customers</h5>
+                <a href="{% url 'customer-add' %}" class="ti-btn ti-btn-primary"><i class="ti ti-plus"></i> Add New</a>
+            </div>
+            <div class="box-body p-0">
+                <div class="overflow-auto">
+                    <table class="ti-custom-table ti-custom-table-head">
+                        <thead>
+                            <tr>
+                                <th scope="col">Name</th>
+                                <th scope="col">Phone</th>
+                                <th scope="col">Address</th>
+                                <th scope="col" class="!text-end">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for customer in customers %}
+                                <tr>
+                                    <td class="font-medium">{{ customer.name }}</td>
+                                    <td>{{ customer.phone }}</td>
+                                    <td>{{ customer.address }}</td>
+                                    <td class="!text-end font-medium">
+                                        <a class="text-primary hover:text-primary" href="javascript:void(0);">Delete</a>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End::row-1 -->
+
+{% endblock 'content' %}

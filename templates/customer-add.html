@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% block 'title' %}Add Customer | Store Sync{% endblock 'title' %}
+    
+
+{% block 'content' %}
+    <!-- Page Header -->
+    <div class="block justify-between page-header md:flex">
+        <div>
+            <h3 class="text-gray-700 hover:text-gray-900 dark:text-white dark:hover:text-white text-2xl font-medium">Add New Customer</h3>
+        </div>
+        <ol class="flex items-center whitespace-nowrap min-w-0">
+            <li class="text-sm">
+                <a class="flex items-center font-semibold text-primary hover:text-primary dark:text-primary truncate" href="javascript:void(0);">
+                    Dashboard
+                    <i class="ti ti-chevrons-right flex-shrink-0 mx-3 overflow-visible text-gray-300 dark:text-gray-300 rtl:rotate-180"></i>
+                </a>
+            </li>
+            <li class="text-sm text-gray-500 hover:text-primary dark:text-white/70 " aria-current="page">Add Customer</li>
+        </ol>
+    </div>
+    <!-- Page Header Close -->
+
+
+    <!-- Start::row-1 -->
+    <div class="grid grid-cols-12 gap-x-5">
+        <div class="col-span-12">
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="{{ message.tags }}" role="alert">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+                
+            
+
+            <div class="box">
+                <div class="box-header">
+                    <h5 class="box-title">Add New Customer</h5>
+                </div>
+                <div class="box-body">
+                    <form method="post">
+                        {% csrf_token %}
+                        <div class="space-y-4">
+                            <input type="text" name="name" placeholder="Customer Name" class="ti-form-input mt-0" required>
+                            <input type="text" name="phone" placeholder="Phone Number" class="ti-form-input" required>
+                            <input type="text" name="address" placeholder="Address" class="ti-form-input" required>
+                            <button type="submit" class="ti-btn ti-btn-primary px-5">Add Customer</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    <!-- End::row-1 -->
+
+{% endblock 'content' %}
+    
+
+        
+
+        
