@@ -448,7 +448,7 @@
         <aside class="app-sidebar" id="sidebar">
             <!-- Start::main-sidebar-header -->
             <div class="main-sidebar-header flex items-center justify-center">
-                <a href="index.html" class="header-logo">
+                <a href="{% url 'dashboard' %}" class="header-logo">
                     <img src="/static/img/brand-logos/logo.png" alt="logo" class="main-logo desktop-logo">
                     <img src="/static/img/brand-logos/logo.png" alt="logo" class="main-logo toggle-logo">
                     <img src="/static/img/brand-logos/logo.png" alt="logo" class="main-logo desktop-dark">
@@ -483,6 +483,7 @@
                                 </a>
                             </li>
                         {% else %}
+
                             <!-- Start::slide -->
                             <li class="slide has-sub {% active_link 'customers' 'active' %}">
                                 <a href="javascript:void(0);" class="side-menu__item {% active_link 'customers' 'active' %}">
@@ -493,7 +494,22 @@
                                 <ul class="slide-menu child1 {% active_link 'customers' 'active' %}">
                                     <li class="slide side-menu__label1"><a href="javascript:void(0)">Customers</a></li>
                                     <li class="slide {% active_link 'customers' 'active' %}"><a href="{% url 'customers' %}" class="side-menu__item {% active_link 'customers' 'active' %}">Customers</a></li>
-                                    <li class="slide"><a href="index.html" class="side-menu__item">Add Customers</a></li>           
+                                    <li class="slide"><a href="{% url 'customer-add' %}" class="side-menu__item">Add Customers</a></li>           
+                                </ul>
+                            </li>
+                            <!-- End::slide -->
+
+                            <!-- Start::slide -->
+                            <li class="slide has-sub {% active_link 'products' 'active' %}">
+                                <a href="javascript:void(0);" class="side-menu__item {% active_link 'products' 'active' %}">
+                                    <i class="ti ti-building-store"></i>
+                                    <span class="side-menu__label">Products</span>
+                                    <i class="ri ri-arrow-right-s-line side-menu__angle"></i>
+                                </a>
+                                <ul class="slide-menu child1 {% active_link 'products' 'active' %}">
+                                    <li class="slide side-menu__label1"><a href="javascript:void(0)">Products</a></li>
+                                    <li class="slide {% active_link 'products' 'active' %}"><a href="{% url 'products' %}" class="side-menu__item {% active_link 'products' 'active' %}">Products</a></li>
+                                    <li class="slide {% active_link 'product-add' 'active' %}"><a href="{% url 'product-add' %}" class="side-menu__item {% active_link 'product-add' 'active' %}">Add Products</a></li>           
                                 </ul>
                             </li>
                             <!-- End::slide -->

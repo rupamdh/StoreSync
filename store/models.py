@@ -11,3 +11,14 @@ class Customer(models.Model):
     
     def __str__(self):
         return self.name
+
+
+
+class Product(models.Model):
+    title = models.CharField(max_length=300)
+    price = models.IntegerField()
+    store = models.ForeignKey(StoreUser, on_delete=models.CASCADE)
+    stock = models.IntegerField(default=0)
+
+    def __str__(self):
+        return self.title

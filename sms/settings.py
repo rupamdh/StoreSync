@@ -143,7 +143,7 @@ from django.contrib import messages
 MESSAGE_TAGS = {
     messages.DEBUG: 'custom-debug',
     messages.INFO: 'custom-info',
-    messages.SUCCESS: 'alert alert-success',
+    messages.SUCCESS: 'bg-success/10 border border-success/10 alert text-success',
     messages.WARNING: 'custom-warning',
     messages.ERROR: 'bg-danger/10 border border-danger/10 alert text-danger',
 }

@@ -30,5 +30,9 @@ urlpatterns = [
     path('stores/', all_stores, name='stores'),
 
     path('customers/add/', customer_add, name='customer-add'),
+    path('customers/edit/<int:id>/', customer_edit, name='customer-edit'),
     path('customers/', customers, name='customers'),
+
+    path('products/add/', product_add, name='product-add'),
+    path('products/', products, name='products'),
 ]
