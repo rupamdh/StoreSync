@@ -67,3 +67,13 @@ def products(request):
         'products' : products
     }
     return render(request, 'products.html', data)
+
+@login_required
+def products_edit(request, id):
+    product = get_object_or_404(Product, id=id)
+
+    
+    data = {
+        'product' : product
+    }
+    return render(request, 'product-edit.html', data)
